@@ -1,0 +1,6 @@
+@OnbhoardingTask_HostAddress = http://localhost:5084
+
+GET {{OnbhoardingTask_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
