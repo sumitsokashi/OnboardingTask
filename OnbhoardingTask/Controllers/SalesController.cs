@@ -44,14 +44,9 @@ namespace OnbhoardingTask.Controllers
 
         // PUT: api/Sales/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutSale(int id, Sale sale)
+        [HttpPut]
+        public async Task<IActionResult> PutSale(Sale sale)
         {
-            if (id != sale.Id)
-            {
-                return BadRequest();
-            }
-
             _context.Entry(sale).State = EntityState.Modified;
 
             try
@@ -60,7 +55,7 @@ namespace OnbhoardingTask.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!SaleExists(id))
+                if (!SaleExists(sale.Id))
                 {
                     return NotFound();
                 }
